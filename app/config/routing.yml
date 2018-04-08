@@ -1,0 +1,4 @@
+g_search:
+    resource: "@GSearchBundle/Controller/"
+    type:     annotation
+    prefix:   /

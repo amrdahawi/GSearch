@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block title %}Google Search SEO{% endblock %}
+{% block body %}
+
+    <h3 class="card-header">Find website(s) rankings in google's first 100 results</h3>
+    {{ form_start(form) }}
+    {% if errors is not empty %}
+        <h3 class="text-danger">Errors</h3>
+        <ul>
+            {% for error in errors %}
+                <li class="text-danger">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <ul id="list">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form_label(form.keyword) }}
+                {{ form_widget(form.keyword, { 'attr': {'class': 'form-control', 'placeholder': "Keyword"}}) }}
+                <small id="emailHelp" class="form-text text-muted">multiple keywords has to be comma separated</small>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {{ form_label(form.url) }}
+                {{ form_widget(form.url, { 'attr': {'class': 'form-control', 'placeholder': "Url"}}) }}
+                <small id="emailHelp" class="form-text text-muted">please provide valid url, starting with http(s),
+                    multiple urls has to be comma separated
+                </small>
+            </div>
+        </div>
+    </ul>
+
+    <div class="form-group text-center">
+        <div class="col-12">
+            {{ form_widget(form.save, { 'attr': {'class': 'btn btn-primary'}}) }}
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+{% endblock %}

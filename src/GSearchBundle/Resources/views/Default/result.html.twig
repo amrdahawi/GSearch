@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Results{% endblock %}
+{% block body %}
+
+    <a href="/" class="badge badge-primary m-4">Home</a>
+
+    {% for result in results %}
+        <div class="card text-white bg-secondary m-4" style="max-width: 18rem;">
+            <div class="card-header">Keyword: {{ result.keyword }}</div>
+            <div class="card-body">
+                <h5 class="card-title">url: {{ result.url }}</h5>
+                <p class="card-text">URL appears in {% if result.matches is empty %}<span
+                            class="font-weight-bold text-danger"> 0</span> {% else %}<span
+                            class="font-weight-bold text-success">{{ result.matches|join(', ') }}</span>
+                    {% endif %} links of google's first 100 results</p>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endblock %}
